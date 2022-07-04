@@ -7,7 +7,7 @@ class Race
     private int $laps = 5;
     private int $weather = 1;
 
-    public function addDriver($driver): void
+    public function addDrivers(array $drivers): void
     {
 
     }
