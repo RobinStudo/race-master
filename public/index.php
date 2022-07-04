@@ -28,3 +28,7 @@ foreach ($monzaRace->getDrivers() as $driver){
     echo $driver->getName() . '<br>';
     echo $driver->getVehicle()->getSpeed() . ' m/s - ' . $driver->getVehicle()->getState() . '% <br>';
 }
+
+// Pouvoir compter les joeurs dans le jeu
+// Méthode pour générer une course automatiquement
+// Utiliser des constantes pour rendre plus lisible la météo

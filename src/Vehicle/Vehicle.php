@@ -1,5 +1,5 @@
 <?php
-class Vehicle{
+abstract class Vehicle{
     const MAX_SPEED = 10;
     private string $brand;
     private string $model;
@@ -56,7 +56,7 @@ class Vehicle{
         return $this->speed;
     }
 
-    public function recivedDammage(int $dammage): void
+    public final function recivedDammage(int $dammage): void
     {
         $this->state = max(0, $this->state - $dammage);
 
@@ -66,10 +66,7 @@ class Vehicle{
         }
     }
 
-    public function repair(): void
-    {
-        $this->state = 100;
-    }
+    public abstract function repair(): void;
 
     public function getState(): int
     {
