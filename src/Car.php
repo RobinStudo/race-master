@@ -36,14 +36,16 @@ class Car{
 
     public function accelerate(int $coefficient): void
     {
-        $this->speed += $coefficient;
+        if($this->engine){
+            $this->speed += $coefficient;
+        }
     }
 
     public function brake(int $coefficient): void
     {
         $this->speed -= $coefficient;
 
-        if($this->speed < 0){
+        if($this->speed <= 0){
             $this->speed = 0;
         }
     }
@@ -56,6 +58,11 @@ class Car{
     public function recivedDammage(int $dammage): void
     {
         $this->state = max(0, $this->state - $dammage);
+
+        if ($this->state === 0) {
+            $this->engine = false;
+            $this->speed = 0;
+        }
     }
 
     public function repair(): void
