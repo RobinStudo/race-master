@@ -1,5 +1,6 @@
 <?php
-class Car{
+class Vehicle{
+    const MAX_SPEED = 10;
     private string $brand;
     private string $model;
     private string $color;
@@ -37,7 +38,7 @@ class Car{
     public function accelerate(int $coefficient): void
     {
         if($this->engine){
-            $this->speed += $coefficient;
+            $this->speed = min($this->speed + $coefficient, self::MAX_SPEED);
         }
     }
 

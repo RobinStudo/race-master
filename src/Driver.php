@@ -2,13 +2,13 @@
 class Driver
 {
     private string $name;
-    private Car $car;
+    private Vehicle $vehicle;
     private int $experience = 0;
 
-    public function __construct(string $name, Car $car)
+    public function __construct(string $name, Vehicle $vehicle)
     {
         $this->name = $name;
-        $this->car = $car;
+        $this->vehicle = $vehicle;
     }
 
     public function getName(): string
@@ -26,15 +26,15 @@ class Driver
         return $this->experience;
     }
 
-    public function getCar(): Car
+    public function getVehicle(): Vehicle
     {
-        return $this->car;
+        return $this->vehicle;
     }
 
     public function ready(): void
     {
-        $this->car->addFuel(10);
-        $this->car->start();
+        $this->vehicle->addFuel(10);
+        $this->vehicle->start();
     }
 
     public function drive(): void
@@ -43,19 +43,19 @@ class Driver
         switch ($actionType) {
             case 1:
             case 2:
-                $this->car->accelerate(rand(1, 5));
+                $this->vehicle->accelerate(rand(1, 5));
                 break;
             case 3:
-                $this->car->brake(rand(1, 5));
+                $this->vehicle->brake(rand(1, 5));
                 break;
         }
 
         $success = rand(1, 100);
-        $dammageChance = 10 + max(10, $this->car->getSpeed());
+        $dammageChance = 10 + max(10, $this->vehicle->getSpeed());
         if($success < 3){
-            $this->car->recivedDammage(100);
+            $this->vehicle->recivedDammage(100);
         } else if($success < $dammageChance) {
-            $this->car->recivedDammage(10);
+            $this->vehicle->recivedDammage(10);
         }
 
 

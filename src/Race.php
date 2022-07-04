@@ -37,8 +37,8 @@ class Race
         }
 
         usort($this->drivers, function(Driver $driver1, Driver $driver2){
-            $driver1State = $driver1->getCar()->getState();
-            $driver2State = $driver2->getCar()->getState();
+            $driver1State = $driver1->getVehicle()->getState();
+            $driver2State = $driver2->getVehicle()->getState();
             if ($driver1State === 0 && $driver2State === 0) {
                 return 0;
             }else if($driver1State === 0){
@@ -47,7 +47,7 @@ class Race
                 return -1;
             }
 
-            return $driver2->getCar()->getSpeed() - $driver1->getCar()->getSpeed();
+            return $driver2->getVehicle()->getSpeed() - $driver1->getVehicle()->getSpeed();
         });
     }
 
