@@ -48,7 +48,7 @@ class Car{
 
     }
 
-    public function addFuel(): void
+    public function addFuel(int $quantity): void
     {
 
     }
