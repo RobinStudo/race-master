@@ -8,6 +8,13 @@ class Car{
     private int $state = 100;
     private float $fuel = 0;
 
+    public function __construct(string $brand, string $model, string $color)
+    {
+        $this->brand = $brand;
+        $this->model = $model;
+        $this->color = $color;
+    }
+
     public function start(): bool
     {
         if ($this->getFuel() > 0 && $this->getState() > 0) {

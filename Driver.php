@@ -5,6 +5,12 @@ class Driver
     private Car $car;
     private int $experience = 0;
 
+    public function __construct(string $name, Car $car)
+    {
+        $this->name = $name;
+        $this->car = $car;
+    }
+
     public function getName(): string
     {
         return $this->name;

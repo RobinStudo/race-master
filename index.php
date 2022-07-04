@@ -1,13 +1,13 @@
 <?php
-$ferrari = new Car();
-$audi = new Car();
-$renault = new Car();
+$ferrari = new Car('Ferrari', 'F450', '#e74c3c');
+$audi = new Car('Audi', 'R8', '#2c3e50');
+$renault = new Car('Renault', 'Megane RS', '#f39c12');
 
-$sam = new Driver();
-$paul = new Driver();
-$didier = new Driver();
+$sam = new Driver('Sam', $ferrari);
+$paul = new Driver('Paul', $audi);
+$didier = new Driver('Didier', $renault);
 
-$monzaRace = new Race();
+$monzaRace = new Race('Monza', 3);
 $monzaRace->addDrivers($sam, $paul, $didier);
 
 $monzaRace->start();

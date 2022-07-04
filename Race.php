@@ -3,9 +3,16 @@
 class Race
 {
     private string $circuit;
-    private array $drivers;
-    private int $laps = 5;
-    private int $weather = 1;
+    private array $drivers = [];
+    private int $laps;
+    private int $weather;
+
+    public function __construct(string $circuit, int $laps = 5, int $weather = 1)
+    {
+        $this->circuit = $circuit;
+        $this->laps = $laps;
+        $this->weather = $weather;
+    }
 
     public function addDrivers(Driver ...$drivers): void
     {
