@@ -7,9 +7,9 @@ class Race
     private int $laps = 5;
     private int $weather = 1;
 
-    public function addDrivers(array $drivers): void
+    public function addDrivers(Driver ...$drivers): void
     {
-
+        array_push($this->drivers, ...$drivers);
     }
 
     public function start(): void
@@ -24,6 +24,6 @@ class Race
 
     public function getDrivers(): array
     {
-        return [];
+        return $this->drivers;
     }
 }

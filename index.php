@@ -8,6 +8,6 @@ $paul = new Driver();
 $didier = new Driver();
 
 $monzaRace = new Race();
-$monzaRace->addDrivers([$sam, $paul, $didier]);
+$monzaRace->addDrivers($sam, $paul, $didier);
 
 $monzaRace->start();

@@ -7,22 +7,22 @@ class Driver
 
     public function getName(): string
     {
-        return '';
+        return $this->name;
     }
 
     public function addExperience(int $bonus): void
     {
-
+        $this->experience += $bonus;
     }
 
     public function getExperience(): int
     {
-        return 0;
+        return $this->experience;
     }
 
     public function getCar(): Car
     {
-        return new Car();
+        return $this->car;
     }
 
     public function drive(): void

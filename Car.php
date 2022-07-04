@@ -10,51 +10,64 @@ class Car{
 
     public function start(): bool
     {
-        return true;
+        if ($this->getFuel() > 0 && $this->getState() > 0) {
+            $this->engine = true;
+        }
+
+        return $this->engine;
     }
 
-    public function stop(): bool
+    public function stop(): void
     {
-        return true;
+        if ($this->speed > 0) {
+            $this->recivedDammage(10);
+            $this->speed = 0;
+        }
+
+        $this->engine = false;
     }
 
     public function accelerate(int $coefficient): void
     {
-
+        $this->speed += $coefficient;
     }
 
     public function brake(int $coefficient): void
     {
+        $this->speed -= $coefficient;
 
+        if($this->speed < 0){
+            $this->speed = 0;
+        }
     }
 
     public function getSpeed(): int
     {
-        return 0;
+        return $this->speed;
     }
 
     public function recivedDammage(int $dammage): void
     {
-
+        $this->state = max(0, $this->state - $dammage);
     }
 
     public function repair(): void
     {
-
+        $this->state = 100;
     }
 
-    public function getState(): void
+    public function getState(): int
     {
-
+        return $this->state;
     }
 
     public function addFuel(int $quantity): void
     {
-
+        $this->fuel += $quantity;
     }
 
     public function getFuel(): int
     {
-        return 0;
+        return $this->fuel;
     }
 }
