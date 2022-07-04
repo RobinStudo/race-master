@@ -2,12 +2,16 @@
 
 class Race
 {
+    const WEATHER_SUNNY = 1;
+    const WEATHER_RAINY = 2;
+    const WEATHER_SNOWY = 3;
+
     private string $circuit;
     private array $drivers = [];
     private int $laps;
     private int $weather;
 
-    public function __construct(string $circuit, int $laps = 5, int $weather = 1)
+    public function __construct(string $circuit, int $laps = 5, int $weather = self::WEATHER_SUNNY)
     {
         $this->circuit = $circuit;
         $this->laps = $laps;
@@ -54,5 +58,13 @@ class Race
     public function getDrivers(): array
     {
         return $this->drivers;
+    }
+
+    public static function generate(): self
+    {
+        $circuits = ['SPA', 'Monaco', 'Miami', 'Indianapolis', 'Silerstone'];
+        $selectedCircuit = $circuits[array_rand($circuits)];
+
+        return new self($selectedCircuit, rand(4, 15), rand(1, 3));
     }
 }

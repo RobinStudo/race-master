@@ -5,10 +5,13 @@ class Driver
     private Vehicle $vehicle;
     private int $experience = 0;
 
+    private static int $counter = 0;
+
     public function __construct(string $name, Vehicle $vehicle)
     {
         $this->name = $name;
         $this->vehicle = $vehicle;
+        self::$counter++;
     }
 
     public function getName(): string
@@ -57,7 +60,10 @@ class Driver
         } else if($success < $dammageChance) {
             $this->vehicle->recivedDammage(10);
         }
+    }
 
-
+    public static function getCounter(): int
+    {
+        return self::$counter;
     }
 }

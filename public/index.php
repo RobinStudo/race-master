@@ -19,7 +19,9 @@ $didier = new Driver('Didier', $renault);
 $robert = new Driver('Robert', $ducati);
 $jean = new Driver('Jean', $scania);
 
-$monzaRace = new Race('Monza', 10);
+echo "Nombre de joueurs : " . Driver::getCounter() . '<br>';
+
+$monzaRace = new Race('Monza', 10, Race::WEATHER_RAINY);
 $monzaRace->addDrivers($sam, $paul, $didier, $robert, $jean);
 
 $monzaRace->start();
@@ -28,7 +30,12 @@ foreach ($monzaRace->getDrivers() as $driver){
     echo $driver->getName() . '<br>';
     echo $driver->getVehicle()->getSpeed() . ' m/s - ' . $driver->getVehicle()->getState() . '% <br>';
 }
+echo '<br><br>';
 
-// Pouvoir compter les joeurs dans le jeu
-// Méthode pour générer une course automatiquement
-// Utiliser des constantes pour rendre plus lisible la météo
+$randRace = Race::generate();
+$randRace->addDrivers($paul, $robert, $jean);
+$randRace->start();
+foreach ($randRace->getDrivers() as $driver){
+    echo $driver->getName() . '<br>';
+    echo $driver->getVehicle()->getSpeed() . ' m/s - ' . $driver->getVehicle()->getState() . '% <br>';
+}
