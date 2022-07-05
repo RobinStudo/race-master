@@ -1,11 +1,12 @@
 <?php
-require_once "../src/Vehicle/Vehicle.php";
-require_once "../src/Vehicle/Car.php";
-require_once "../src/Vehicle/Motorcycle.php";
-require_once "../src/Vehicle/Truck.php";
+function autoloadClass(string $classname)
+{
+    $path = str_replace('App', '../src', $classname);
+    $path = str_replace('\\', '/', $path);
+    require_once sprintf('%s.php', $path);
+}
 
-require_once "../src/Driver.php";
-require_once "../src/Race.php";
+spl_autoload_register('autoloadClass');
 
 use App\Driver;
 use App\Race;
