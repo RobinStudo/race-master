@@ -7,6 +7,12 @@ require_once "../src/Vehicle/Truck.php";
 require_once "../src/Driver.php";
 require_once "../src/Race.php";
 
+use App\Driver;
+use App\Race;
+use App\Vehicle\Car;
+use App\Vehicle\Motorcycle;
+use App\Vehicle\Truck;
+
 $ferrari = new Car('Ferrari', 'F450', '#e74c3c');
 $audi = new Car('Audi', 'R8', '#2c3e50');
 $renault = new Car('Renault', 'Megane RS', '#f39c12');

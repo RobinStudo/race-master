@@ -1,4 +1,6 @@
 <?php
+namespace App\Vehicle;
+
 final class Truck extends Vehicle
 {
     private int $state = 200;

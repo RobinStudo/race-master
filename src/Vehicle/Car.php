@@ -1,4 +1,6 @@
 <?php
+namespace App\Vehicle;
+
 final class Car extends Vehicle
 {
     const MAX_SPEED = 15;

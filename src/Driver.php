@@ -1,4 +1,8 @@
 <?php
+namespace App;
+
+use App\Vehicle\Vehicle;
+
 class Driver
 {
     private string $name;

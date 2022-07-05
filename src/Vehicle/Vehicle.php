@@ -1,4 +1,6 @@
 <?php
+namespace App\Vehicle;
+
 abstract class Vehicle{
     const MAX_SPEED = 10;
     private string $brand;
