@@ -1,21 +1,22 @@
 <?php
 namespace App;
 
+use App\Util\Countable;
 use App\Vehicle\Vehicle;
 
 class Driver
 {
+    use Countable;
+
     private string $name;
     private Vehicle $vehicle;
     private int $experience = 0;
-
-    private static int $counter = 0;
 
     public function __construct(string $name, Vehicle $vehicle)
     {
         $this->name = $name;
         $this->vehicle = $vehicle;
-        self::$counter++;
+        self::incrementCounter();
     }
 
     public function getName(): string
@@ -66,8 +67,14 @@ class Driver
         }
     }
 
-    public static function getCounter(): int
+    public function __toString(): string
     {
-        return self::$counter;
+        return $this->name . ' - ' . $this->getVehicle();
+    }
+
+    public function __clone(): void
+    {
+        self::incrementCounter();
+        $this->vehicle = clone $this->vehicle;
     }
 }

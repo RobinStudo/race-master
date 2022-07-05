@@ -1,7 +1,12 @@
 <?php
 namespace App\Vehicle;
 
-abstract class Vehicle{
+use App\Util\Countable;
+use App\Util\Destructible;
+
+abstract class Vehicle implements Destructible{
+    use Countable;
+
     const MAX_SPEED = 10;
     private string $brand;
     private string $model;
@@ -16,6 +21,7 @@ abstract class Vehicle{
         $this->brand = $brand;
         $this->model = $model;
         $this->color = $color;
+        self::incrementCounter();
     }
 
     public function start(): bool
@@ -83,5 +89,10 @@ abstract class Vehicle{
     public function getFuel(): int
     {
         return $this->fuel;
+    }
+
+    public function __toString(): string
+    {
+        return $this->brand . ' ' . $this->model;
     }
 }

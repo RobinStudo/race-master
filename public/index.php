@@ -30,7 +30,7 @@ $monzaRace->addDrivers($sam, $paul, $didier, $robert, $jean);
 $monzaRace->start();
 
 foreach ($monzaRace->getDrivers() as $driver){
-    echo $driver->getName() . '<br>';
+    echo $driver . '<br>';
     echo $driver->getVehicle()->getSpeed() . ' m/s - ' . $driver->getVehicle()->getState() . '% <br>';
 }
 echo '<br><br>';
