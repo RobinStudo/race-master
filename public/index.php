@@ -1,18 +1,14 @@
 <?php
-function autoloadClass(string $classname)
-{
-    $path = str_replace('App', '../src', $classname);
-    $path = str_replace('\\', '/', $path);
-    require_once sprintf('%s.php', $path);
-}
+require_once "../src/Util/Autoloader.php";
 
-spl_autoload_register('autoloadClass');
-
+use App\Util\Autoloader;
 use App\Driver;
 use App\Race;
 use App\Vehicle\Car;
 use App\Vehicle\Motorcycle;
 use App\Vehicle\Truck;
+
+Autoloader::register();
 
 $ferrari = new Car('Ferrari', 'F450', '#e74c3c');
 $audi = new Car('Audi', 'R8', '#2c3e50');
